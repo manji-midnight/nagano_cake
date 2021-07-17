@@ -1,6 +1,6 @@
 <header>
     <nav class="nav navbar navbar-left title">
-      <% if admin_sign_in? %>
+      <% if admin_signed_in? %>
       <%= link_to "NaganoCake", admin_root_path %>
       <% else %>
       <%= link_to "NaganoCake", public_root_path %>
