@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   devise_for :users
   namespace :admin do
     resources :order_details, only:[:update]
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
     resources :genres, only:[:index,:create,:edit,:update]
     resources :products, only:[:index,:new,:create,:show,:edit,:update]
     resources :customers, only:[:index,:show,:edit,:update]
+    root :to => "homes#top"
   end
 
   namespace :public do

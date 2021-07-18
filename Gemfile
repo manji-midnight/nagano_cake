@@ -61,7 +61,7 @@ gem 'payjp'
 
 gem "bootstrap", '~>4.5'
 
-gem"kaminari",'~> 1.2.1'
+gem "kaminari",'~> 1.2.1'
 
 gem 'turbolinks', '~> 5'
 
