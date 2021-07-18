@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
+   resources :products, only:[:index,:show,]
    resources :shippings, only:[:index,:create,:edit,:update]
    resource :users, only:[:show,:edit,:update]
    get 'users/unsubscribe'
