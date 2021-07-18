@@ -10,12 +10,14 @@
     <td></td>
   </tr>
   <tr>
-    <td>画像：チョコバナナミルフィーユ</td>
-    <td>1,100</td>
-    <td>1</td>
-    <td>1,100</td>
-    <td>削除する</td>
+    <% @cart_products.each do |f| %>
+    <td>画像：<%= f.name %></td>
+    <td><%= f.price %></td>
+    <td><%= f.quantity %></td>
+    <td><%= f.price*f.quantity %></td>
+    <td><%= link_to"削除する", public_cart_product_path, method: :delete %></td>
   </tr>
+  <% end %>
 </table>
 
 <p>買い物を続ける</p>
