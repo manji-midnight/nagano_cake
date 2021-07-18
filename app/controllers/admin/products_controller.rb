@@ -8,10 +8,9 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(post_image_params)
-    @product.user_id = current_user.id
+    @product = Product.new(product_params)
     @product.save
-    redirect_to admin_product_path
+    redirect_to admin_products_path
   end
 
   def show
@@ -27,7 +26,7 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :image_id, :description, :price, :genre_id)
+    params.require(:product).permit(:name, :image, :description, :price, :genre_id)
   end
   
 end

@@ -6,8 +6,6 @@ GIT
       mime-types
       rest-client (~> 2)
       sinatra (~> 2.0.0.beta2)
-      
-
 
 GEM
   remote: https://rubygems.org/
