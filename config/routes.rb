@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
+   resources :products, only:[:index,:show,]
    resources :shippings, only:[:index,:create,:edit,:update]
    resource :users, only:[:show,:edit,:update]
    get 'users/unsubscribe'
@@ -18,8 +19,8 @@ Rails.application.routes.draw do
    resources :orders, only:[:new,:create,:index,:show]
    get 'orders/thankyou'
    post 'orders/comfirm'
-   resources :cart_products, only:[:new,:create,:index,:show]
-   resources :products, only:[:index,:show]
+   resources :cart_products, only:[:create,:index,:update,:show,:destroy]
+   delete 'cart_products/destroy_all'
    root :to => "homes#top"
    get 'homes/about'
   end
