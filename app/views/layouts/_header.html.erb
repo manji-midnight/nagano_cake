@@ -16,7 +16,7 @@
           <% if user_signed_in? %>
           <!--カスタマーがログインしている時-->
             <li class="header-name">
-              ようこそ、<%= full_name(current_customer) %>さん！
+              ようこそ、<%= name(current_user) %>さん！
             </li>
             <li><%= link_to "マイページ", public_users_path(current_customer), class: "nav-link" %></li>
             <li><%= link_to "商品一覧", public_products_path, class: "nav-link" %></li>
