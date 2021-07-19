@@ -1,2 +1,27 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+
+<p class="text-center">ようこそ、ながのCAKEへ！<br>
+このサイトは、ケーキ販売のECサイトになります。<br>
+会員でない方も商品の閲覧はできますが、<br>
+購入には会員登録が必要になります</p>
+<h1>新規商品</h1>
+<p><%= link_to "全ての商品を見る>" %><p>
+    
+    
+    
+    <h3>管理者ログイン</h3>
+    
+    <div class="text-center">
+        
+    <div><label for="user_name">メールアドレス</label>
+    <input autofocus="autofocus" autocomplete="メールアドレス" type="text" name="user[name]" id="user_name">
+      </div>
+    
+    <br>
+    <div><label for="user_name"> パスワード</label>
+    <input autocomplete="current-password" type="password" name="user[password]" id="user_password">
+      </div>
+    
+    <br>
+    <input type="submit" name="commit" value="ログイン" data-disable-with="ログイン">
+    </div>
+     
