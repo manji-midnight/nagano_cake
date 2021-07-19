@@ -1,17 +1,2 @@
-<div class="container px-5 px-sm-0">
-  <div class="row m-5">
-    <div class="col-lg-5">
-      <%= attachment_image_tag @product, :image %>
-    </div>
-    <div class="col-lg-7">
-      <p>商品名<%= @product.name %></p>
-      <p>商品説明<%= @product.description %></p>
-      <p>ジャンル</p>
-      <p>税込価格(税抜価格)<%= @product.jenre.id %></p>
-      <p>販売ステータス<%= @product.is_active %></p>
-    </div>
-    <div>
-      <%= link_to "編集する", edit_admin_product_path(@product) ,class:'btn btn-success' %>
-    </div>
-  </div>
-</div>
+<h1>Admin::Products#show</h1>
+<p>Find me in app/views/admin/products/show.html.erb</p>
