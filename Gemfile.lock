@@ -71,7 +71,6 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
-    device (0.0.0)
     devise (4.8.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -254,7 +253,6 @@ DEPENDENCIES
   bootstrap (~> 4.5)
   byebug
   coffee-rails (~> 4.2)
-  device
   devise
   enumerize
   font-awesome-sass (~> 5.13)
