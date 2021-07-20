@@ -15,10 +15,10 @@
           <tbody>
             <% @products.each do |product| %>
               <tr>
-                <td></td>
+                <td><%= product.id %></td>
                 <td><%= link_to product.name, "/products/#{product.id}" %></td>
-                <td><%= product.price %></td>
-                <td><%= product.jenre.id %></td>
+                <td><%= product.price %>円</td>
+                <td><%= product.genre.name %></td>
                 <td><%= product.is_active %></td>
               </tr>
             <% end %>
