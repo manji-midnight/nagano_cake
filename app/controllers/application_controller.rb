@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 end
 
-  before_action :check_admin
+  #before_action :check_admin
   #before_action :login_requied
   private
 
@@ -23,8 +23,3 @@ end
   def login_requied
     redirect_to login_path unless current_user
   end
-
-
-end
-
-end
