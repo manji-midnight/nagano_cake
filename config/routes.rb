@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'sessions/new'
+  end
   devise_for :admins
   devise_for :users
   namespace :admin do
@@ -8,6 +11,7 @@ Rails.application.routes.draw do
     resources :products, only:[:index,:new,:create,:show,:edit,:update]
     resources :customers, only:[:index,:show,:edit,:update]
     root :to => "homes#top"
+   
   end
 
   namespace :public do
