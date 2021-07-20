@@ -65,4 +65,8 @@ gem "kaminari",'~> 1.2.1'
 
 gem 'turbolinks', '~> 5'
 
+
 gem "devise"
+
+gem 'pry-rails'
+
