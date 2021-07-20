@@ -32,3 +32,22 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
+    
+    <div class="text-center">
+      <h3>管理者ログイン</h3>
+      
+        
+    <div><label for="user_name">メールアドレス</label>
+    <input autofocus="autofocus" autocomplete="メールアドレス" type="text" name="user[name]" id="user_name">
+      </div>
+    
+    <br>
+    <div><label for="user_name"> パスワード</label>
+    <input autocomplete="current-password" type="password" name="user[password]" id="user_password">
+      </div>
+    
+    <br>
+    <input type="submit" name="commit" value="ログイン" data-disable-with="ログイン">
+    </div>
