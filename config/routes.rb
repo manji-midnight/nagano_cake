@@ -16,12 +16,14 @@ Rails.application.routes.draw do
 
   end
 
-  scope module: :public do
-    devise_for :users, controllers: {
+  devise_for :users, controllers: {
     sessions:      'public/users/sessions',
     passwords:     'public/users/passwords',
     registrations: 'public/users/registrations'
   }
+
+  scope module: :public do
+
    resources :products, only:[:index,:show,]
    resources :shippings, only:[:index,:create,:edit,:update]
    resource :users, only:[:show,:edit,:update]
