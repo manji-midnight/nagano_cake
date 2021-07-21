@@ -10,12 +10,12 @@
     <td></td>
   </tr>
   <tr>
-    <% @cart_products.each do |f| %>
-    <td>画像：<%= f.name %></td>
-    <td><%= f.price %></td>
-    <td><%= f.quantity %></td>
-    <td><%= f.price*f.quantity %></td>
-    <td><%= link_to"削除する", cart_product_path, method: :delete %></td>
+    <% @cart_products.each do |cart_product| %>
+    <td>画像：<%= cart_product.product.name %></td>
+    <td><%= cart_product.product.price %></td>
+    <td><%= cart_product.quantity %></td>
+    <td><%= cart_product.product.price*cart_product.quantity %></td>
+    <td><%= link_to"削除する", cart_product_path(cart_product), method: :delete %></td>
   </tr>
   <% end %>
 </table>
