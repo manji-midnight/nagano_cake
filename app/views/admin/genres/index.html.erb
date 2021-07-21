@@ -3,6 +3,7 @@
   <%= form_with model: @genre, url: admin_genres_path, local:true do |f|%>
   <%= f.text_field :name %>
   <%= f.submit %>
+  <% end %>
 
 <table>
   <tr>
@@ -10,8 +11,9 @@
     <td></td>
   </tr>
   <tr>
-    <td>ケーキ</td>
-    <td>編集する</td>
+    <% @genres.each do |genre| %>
+    <td><%= genre.name %></td>
+    <td><%= link_to "Edit", edit_admin_genre_path(genre.id) %></td>
   </tr>
   <% end %>
 </table>
