@@ -16,19 +16,19 @@ Rails.application.routes.draw do
 
   end
 
-  devise_for :users, controllers: {
-    sessions:      'public/users/sessions',
-    passwords:     'public/users/passwords',
-    registrations: 'public/users/registrations'
+  devise_for :customers, controllers: {
+    sessions:      'public/sessions',
+    passwords:     'public/passwords',
+    registrations: 'public/registrations'
   }
 
   scope module: :public do
 
    resources :products, only:[:index,:show,]
    resources :shippings, only:[:index,:create,:edit,:update]
-   resource :users, only:[:show,:edit,:update]
-   get 'users/unsubscribe'
-   patch 'users/withdraw'
+   resource :customers, only:[:show,:edit,:update]
+   get 'customers/unsubscribe'
+   patch 'customers/withdraw'
    resources :orders, only:[:new,:create,:index,:show]
    get 'orders/thankyou'
    post 'orders/comfirm'
