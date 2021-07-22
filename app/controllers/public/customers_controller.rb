@@ -8,9 +8,19 @@ class Public::CustomersController < ApplicationController
   end
 
   def update
+    @customer = current_customer
+    if @customer.update(customer_params)
+      redirect_to customers_path, notice: "会員情報を変更しました"
+    else
+      render :edit
+    end
   end
 
   def unsubscribe
+    @customer = current_customer
+    @customer.update(delete: true)
+    reset_session
+    redirect_to root_path, alert: "退会しました"
   end
 
   def withdraw

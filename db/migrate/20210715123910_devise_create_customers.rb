@@ -41,7 +41,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[5.0]
       t.string :phone_number
       t.string :email
       t.string :password
-      t.boolean :delete_user
+      t.boolean :delete_user, default: false, null: false
 
       t.timestamps null: false
     end
