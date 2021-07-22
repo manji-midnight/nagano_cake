@@ -16,10 +16,16 @@
             <% @products.each do |product| %>
               <tr>
                 <td><%= product.id %></td>
-                <td><%= link_to product.name, "/products/#{product.id}" %></td>
+                <td><%= link_to product.name, "/admin/products/#{product.id}" %></td>
                 <td><%= product.price %>円</td>
                 <td><%= product.genre.name %></td>
-                <td><%= product.is_active %></td>
+                <td>
+                  <% if product.is_active == true %>
+                  　<font color="green">販売中</font>
+                  <% else %>
+                    <font color="#C0C0C0">販売停止中</font>
+                  <% end %>
+                </td>
               </tr>
             <% end %>
           </tbody>
