@@ -5,18 +5,21 @@ class Public::CartProductsController < ApplicationController
   end
 
   def create
-    @product = Product.find_by(params[:id])
     @cart_product = CartProduct.new(cart_product_params)
-    @cart_product.product_id = @product.id
     @cart_product.customer_id = current_customer.id
-    @cart_product.save
+    @existing_product = CartProduct.find_by(product_id: params[:product_id])
+    if @existing_product.present?
+      @update_value = @existing_product.quantity + params[:quantity].to_i
+      @existing_product.update(quantity: @update_value)
+    else
+      @cart_product.save
+    end
     redirect_to cart_products_path
   end
 
   def update
-    @cart_product = CartProduct.find(params[:id])
-    @cart_product.update(cart_product_params)
-    @cart_product.save
+    @cart_products = CartProduct.all
+    @cart_products.update(cart_product_params)
     redirect_to cart_products_path
 
   end
@@ -34,7 +37,7 @@ class Public::CartProductsController < ApplicationController
   end
 
   def cart_product_params
-    params.permit(:customer_id, :product_id, :quantity_id)
+    params.permit(:customer_id, :product_id, :quantity)
   end
 
 end
