@@ -14,6 +14,10 @@ class Public::CartProductsController < ApplicationController
   end
 
   def update
+    @cart_product = CartProduct.find(params[:id])
+    @cart_product.update(cart_product_params)
+    @cart_product.save
+    redirect_to cart_products_path
 
   end
 
