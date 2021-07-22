@@ -1,2 +1,72 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-10 col-lg-9 col-xl-8 mx-auto">
+      <h2 class="mb-4">会員情報</h2>
+
+      <%= form_with model: @customer, url: admin_customer_path, local: true, class: "mb-3 pl-md-3" do |f| %>
+
+        <div class="form-group row">
+          <%= f.label "氏名", class: "col-md-4 col-form-label" %>
+          <div class="col-sm-6 col-md-4">
+            <%= f.text_field :last_name, autofocus: true,  placeholder: "", class:"form-control" %>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <%= f.text_field :first_name, autofocus: true,  placeholder: "", class:"form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :last_name_kana, "フリガナ", class: "col-md-4 col-form-label" %>
+          <div class="col-sm-6 col-md-4">
+            <%= f.text_field :last_name_kana, autofocus: true,  placeholder: "", class:"form-control" %>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <%= f.text_field :first_name_kana, autofocus: true,  placeholder: "", class:"form-control" %>
+          </div>
+        </div>
+
+         <div class="form-group row">
+          <%= f.label :postal_code, "郵便番号", class: "col-md-4 col-form-label" %>
+          <div class="col-sm-6 col-md-4">
+            <%= f.text_field :postal_code, autofocus: true, placeholder: "", class:"form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :addres, "住所", class: "col-md-4 col-form-label" %>
+          <div class="col-md-8">
+            <%= f.text_area :address, autofocus: true, placeholder: "", class:"form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :tel, "電話番号", class: "col-md-4 col-form-label" %>
+          <div class="col-sm-6 col-md-4">
+            <%= f.text_field :tel, autofocus: true, placeholder: "", class:"form-control" %>
+          </div>
+        </div>
+        
+        <div class="form-group row">
+          <%= f.label :email, "メールアドレス", class: "col-md-4 col-form-label" %>
+          <div class="col-sm-6 col-md-4">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "", class:"form-control" %>
+          </div>
+        </div>
+        
+        <div class="form-group row">
+          <%= f.label :tel, "会員ステータス", class: "col-md-4 col-form-label" %>
+          <div class="col-sm-6 col-md-4">
+            <%= f.text_field :tel, autofocus: true, placeholder: "", class:"form-control" %>
+          </div>
+        </div>
+       <div class="form-group row">
+          <div class="col-7 text-right">
+            <%= f.submit "変更を保存", class:"btn btn-success" %>
+          </div>
+        </div>
+      <% end %>
+      
+    </div>
+  </div>
+</div>

@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_07_17_051509) do
     t.string "postcode"
     t.string "address"
     t.string "phone_number"
-    t.string "email"
+    t.string "eemailmail"
     t.string "password"
     t.boolean "delete_user"
     t.datetime "created_at", null: false
