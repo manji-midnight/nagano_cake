@@ -1,10 +1,10 @@
 class CreateShippings < ActiveRecord::Migration[5.0]
   def change
     create_table :shippings do |t|
-      t.integer :customer_id
-      t.string :name
-      t.string :postcode
-      t.string :address
+      t.integer :customer_id, null: false
+      t.string :name, null: false
+      t.string :postcode, null: false
+      t.string :address, null: false
       t.timestamps
     end
   end
