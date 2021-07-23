@@ -1,2 +1,11 @@
-<h1>Public::Shippings#edit</h1>
-<p>Find me in app/views/public/shippings/edit.html.erb</p>
+<div class="container px-5 px-sm-0">
+      <div class="row m-5">
+    <div class="col-lg-5">
+    </div>
+    <div class="col-lg-7">
+      <p>郵便番号<%= @shippings.postcode %></p>
+      <p>住所<%= @shippings.address%></p>
+      <p>宛名<%= @shippings.name %></p>
+      <%=link_to "変更内容を保存",customer_registration_path %>
+    </div>
+  </div>
