@@ -1,10 +1,10 @@
 <div class="container">
-  <%= render "shared/flash_message" %>
+  <%#= render "shared/flash_message" %>
   <div class="row">
     <div class="col-md-10 col-lg-9 col-xl-8 mx-auto">
       <h2 class="mb-4 ml-md-n2">会員情報編集</h2>
-      <%= form_with model: @customer, url: customers_path, local:true do |f| %>
-        <%= render 'shared/form_error', model: @customer %>
+      <%= form_with model: @customer, url: customers_update_path, local:true do |f| %>
+        <%#= render 'shared/form_error', model: @customer %>
         <div class="form-group row">
           <%= f.label :first_name, "氏名", class: "col-form-label col-md-4" %>
           <div class="col-sm-6 col-md-4">
@@ -26,9 +26,9 @@
         </div>
 
         <div class="form-group row">
-          <%= f.label :postal_code, "郵便番号", class: "col-form-label col-md-4" %>
+          <%= f.label :postcode, "郵便番号", class: "col-form-label col-md-4" %>
           <div class="col-sm-6 col-md-4">
-            <%= f.text_field :postal_code, class: "form-control" %>
+            <%= f.text_field :postcode, class: "form-control" %>
           </div>
         </div>
 
@@ -40,9 +40,9 @@
         </div>
 
         <div class="form-group row">
-          <%= f.label :tel, "電話番号", class: "col-form-label col-md-4" %>
+          <%= f.label :phone_number, "電話番号", class: "col-form-label col-md-4" %>
           <div class="col-sm-6 col-md-4">
-            <%= f.text_field :tel, class: "form-control" %>
+            <%= f.text_field :phone_number, class: "form-control" %>
           </div>
         </div>
 
@@ -58,7 +58,7 @@
             <%= f.submit "編集内容を保存", class: "btn btn-success" %>
           </div>
           <div class="col-6 col-md-4 text-right">
-            <%= link_to "退会する", out_confirm_customers_path, class: "btn btn-danger" %>
+            <%= link_to "退会する", customers_unsubscribe_path, class: "btn btn-danger" %>
           </div>
         </div>
       <% end %>
