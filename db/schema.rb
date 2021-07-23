@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2021_07_17_051509) do
     t.string "name", null: false
     t.string "postcode", null: false
     t.string "address", null: false
-    t.integer "order_status"
+    t.integer "order_status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
