@@ -26,7 +26,9 @@ Rails.application.routes.draw do
 
    resources :products, only:[:index,:show,]
    resources :shippings, only:[:index,:create,:edit,:update]
-   resource :customers, only:[:show,:edit,:update]
+   resource :customers, only:[:show,:update]
+   get 'customer_edit' => 'customers#edit', as: 'customer_edit'
+   patch 'customers/update' => 'customers#update'
    get 'customers/unsubscribe'
    patch 'customers/withdraw'
    resources :orders, only:[:new,:create,:index,:show]
