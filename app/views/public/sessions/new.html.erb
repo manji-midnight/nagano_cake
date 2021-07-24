@@ -5,7 +5,7 @@
       <h2 class="mb-3 ml-sm-n2">ログイン</h2>
       <h4 class="mb-3">会員の方はこちらからログイン</h4>
       
-      <%= form_with model: @user, url: user_session_path, local:true, class: "pl-sm-4" do |f| %>
+      <%= form_with model: @user, url: customer_session_path, local:true, class: "pl-sm-4" do |f| %>
         <div class="form-group row">
           <%= f.label :email, "メールアドレス", class: "col-sm-4 col-form-label" %>
           <div class="col-sm-8">
@@ -27,7 +27,7 @@
       <% end %>
 
       <h4 class="mb-3">会員登録がお済みでない方</h4>
-      <p class="pl-4"><%= link_to"こちら", new_user_registration_path %> から新規登録を行ってください。</p>
+      <p class="pl-4"><%= link_to"こちら", new_customer_registration_path %> から新規登録を行ってください。</p>
     </div>
   </div>
 </div>

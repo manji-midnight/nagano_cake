@@ -18,7 +18,7 @@ class Public::CustomersController < ApplicationController
 
   def unsubscribe
     @customer = current_customer
-    @customer.update(delete: true)
+    @customer.update(delete_user: true)
     reset_session
     redirect_to root_path, alert: "退会しました"
   end
