@@ -1,22 +1,70 @@
-<h4>配送先　追加・一覧</h4>
-<p>配送先追加</p>
-  <%= form_with model: @shipping, url: shippings_path, local:true do |f|%>
-  <%= f.text_field :postcode, placeholder: "郵便番号" %>
-  <%= f.text_field :address, placeholder: "住所" %>
-  <%= f.text_field :name, placeholder: "宛名" %>
-  <%= f.submit %>
-  <% end %>
+<div class="container">
 
-<div class="container px-5 px-sm-0">
-      <div class="row m-5">
-    <div class="col-lg-5">
-    </div>
-    <div class="col-lg-7">
-      <% @shippings.each do |shipping| %>
-      <p>郵便番号<%= shipping.postcode %></p>
-      <p>住所<%= shipping.address %></p>
-      <p>宛名<%= shipping.name %></p>
+  <div class="row">
+    
+    <div class="col-md-10 mx-auto">
+      <div class="mt-4 mb-4 bg-light d-inline-block">
+        <h4 class="px-2 pt-2">配送先登録/一覧</h4>
+      </div>
+      <%= form_with model: @shipping, url: shippings_path, local: true do |f| %>
+        <div class="row">
+          <div class="col">
+            
+
+            <div class="form-group row">
+              <p class="col-lg-3 pt-1">郵便番号（ハイフンなし）</p>
+              <%= f.text_field :postcode, placeholder:"0000000", class: "form-control col-lg-6" %>
+            </div>
+
+            <div class="form-group row">
+              <p class="col-lg-3 pt-1">住所</p>
+              <%= f.text_field :address, placeholder:"卍卍卍卍", class: "form-control col-lg-6" %>
+            </div>
+
+            <div class="row">
+              <p class="col-lg-3 pt-1">宛名</p>
+              <%= f.text_field :name, placeholder:"卍○○卍", class: "form-control col-lg-6" %>
+              <div class="col-lg-3 py-4 py-lg-0 text-center">
+                <%= f.submit "新規登録", class:"btn btn-success px-4" %>
+              </div>
+            </div>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
   
+  <div class="row mx-2 mx-sm-0">
+    <div class="col-lg-10 mx-auto">
+      <table class="table table-bordered">
+        <thead class="bg-light">
+          <tr>
+            <th class="text-nowrap">郵便番号</th>
+            <th>住所</th>
+            <th class="text-nowrap">宛名</th>
+            <th colspan="2"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @shippings.each do |shipping| %>
+            <tr>
+              <td><%= shipping.postcode %></td>
+              <td><%= shipping.address %></td>
+              <td><%= shipping.name %></td>
+              <td colspan="2">
+                <div class="row">
+                  <div class="col-lg-6 px-2 pb-3 pb-lg-0 text-center">
+                    <%= link_to "編集する", edit_shipping_path(shipping.id), class: "btn btn-success" %>
+                  </div>
+                  <div class="col-lg-6 px-2 text-center">
+                    <%= link_to "削除する", shipping_path(shipping.id), method: :delete, class: "btn btn-danger" %>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -94,10 +94,10 @@ ActiveRecord::Schema.define(version: 2021_07_17_051509) do
   end
 
   create_table "shippings", force: :cascade do |t|
-    t.integer "customer_id", null: false
-    t.string "name", null: false
-    t.string "postcode", null: false
-    t.string "address", null: false
+    t.integer "customer_id"
+    t.string "name"
+    t.string "postcode"
+    t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
