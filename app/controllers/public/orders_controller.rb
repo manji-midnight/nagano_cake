@@ -1,10 +1,15 @@
 class Public::OrdersController < ApplicationController
+
+  def thankyou
+  end
+
   def new
     @order = Order.new
   end
 
   def comfirm
     @cart_products = current_customer.cart_products
+    @total_price = @cart_products.inject(0) { |sum, product| sum + product.sum_of_price }
     @order = Order.new(order_params)
     if params[:order][:shipping_address] === "1"
       @order.postcode = current_customer.postcode
@@ -14,11 +19,11 @@ class Public::OrdersController < ApplicationController
       @address = Shipping.find(params[:shipping_address_id])
       @order.postcode = @address.postcode
       @order.address = @address.address
-      @order.name = @address.name
+      @order.address_name = @address.name
     else params[:order][:shipping_address] === "3"
       @order.postcode = params[:order][:postcode]
       @order.address = params[:order][:address]
-      @order.name = params[:order][:name]
+      @order.address_name = params[:order][:name]
     end
   end
 
@@ -30,9 +35,6 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = Order.all
-  end
-
-  def thankyou
   end
 
   def show
@@ -50,7 +52,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def order_params
-    params.permit(:customer_id, :shipping_fee,:total_price,:payment_method,:address_name,:postcode,:address,:order_status)
+    params.permit(:customer_id, :shipping_fee, :total_price, :payment_method, :address_name, :postcode, :address, :order_status)
   end
 
 end
