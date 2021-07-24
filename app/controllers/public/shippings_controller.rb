@@ -27,7 +27,7 @@ class Public::ShippingsController < ApplicationController
     #shipping.update(shipping_params)
     redirect_to admin_customers_path
   end
-  
+
   def destroy
     @shipping = Shipping.find(params[:id])
     @shipping.customer_id = current_customer.id
@@ -35,9 +35,9 @@ class Public::ShippingsController < ApplicationController
     flash[:success] = "配送先の削除が完了しました。"
     redirect_to shippings_path
   end
-  
+
   private
-  
+
   def shipping_params
     params.require(:shipping).permit(:customer_id, :name, :postcode, :address)
   end

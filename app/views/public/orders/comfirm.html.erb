@@ -1,2 +1,45 @@
-<h1>Public::Orders#comfirm</h1>
-<p>Find me in app/views/public/orders/comfirm.html.erb</p>
+<div class="container">
+  <div class="col-lg-10 col-xl-8 mx-auto">
+    <div class="row mb-3">
+      <div class="col-12">
+        <table class="table table-bordered">
+          <% @cart_products. each do |cart_product|%>
+          <tr>
+            <th class="table-active">商品名</th>
+            <td><%= cart_product.product.name %></td>
+          </tr>
+          <tr>
+            <th class="table-active">単価（税込）</th>
+            <td><%= cart_product.product.add_tax_price.to_s(:dalimited) %></td>
+          </tr>
+          <tr></tr>
+            <th class="table-active">数量</th>
+            <td><%= cart_product.quantity %></td>
+          </tr>
+          <tr>
+            <th class="table-active">小計</th>
+            <td><%= cart_product.product.add_tax_price.to_s(:dalimited) * cart_product.quantity %></td>
+          </tr>
+        </table>
+        <% end %>
+        <table class="table table-bordered">
+          <tr><th>送料</th><td><%= @order.shipping_fee %></td></tr>
+          <tr><th>商品合計</th><td><%= %></td></tr>
+          <tr><th>請求合計</th><td><%= @order.total_price %></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6 col-sm-4 col-md-3 d-flex align-items-center">
+        <h5>支払い方法 <%= @order.payment_method %></h5>
+      </div>
+      <div class="col-6 col-sm-4 col-md-3 d-flex align-items-center">
+        <h5>お届け先 <%= @order.postcode %><%= @order.address %><%= @order.name %></h5>
+      </div>
+      <div class="actions col-6 col-sm-4 col-md-3">
+        <%= link_to "注文を確定する", orders_path(payment_method: @order.payment_method, postcode: @order.postcode, address: @order.address, name: @order.name), class:"btn btn-primary btn-block"%>
+      </div>
+    </div>
+  </div>
+</div>

@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2021_07_17_051509) do
   end
 
   create_table "orders", force: :cascade do |t|
+
     t.integer "customer_id", null: false
     t.integer "shipping_fee", null: false
     t.integer "total_price", null: false
@@ -78,6 +79,7 @@ ActiveRecord::Schema.define(version: 2021_07_17_051509) do
     t.string "postcode", null: false
     t.string "address", null: false
     t.integer "order_status", default: 0, null: false
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
