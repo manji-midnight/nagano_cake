@@ -18,12 +18,13 @@ class Public::CustomersController < ApplicationController
 
   def unsubscribe
     @customer = current_customer
-    @customer.update(delete_user: true)
-    reset_session
-    redirect_to root_path, alert: "退会しました"
   end
 
   def withdraw
+    @customer = current_customer
+    @customer.update(delete_user: true)
+    reset_session
+    redirect_to root_path, alert: "退会しました"
   end
   
   private
