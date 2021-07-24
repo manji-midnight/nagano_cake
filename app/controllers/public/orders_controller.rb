@@ -9,7 +9,7 @@ class Public::OrdersController < ApplicationController
     if params[:order][:shipping_address] === "1"
       @order.postcode = current_customer.postcode
       @order.address = current_customer.address
-      @order.name = current_customer.full_name
+      @order.address_name = current_customer.last_name + current_customer.first_name
     elsif params[:order][:shipping_address] === "2"
       @address = Shipping.find(params[:shipping_address_id])
       @order.postcode = @address.postcode
@@ -50,7 +50,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def order_params
-    params.permit(:customer_id, :shipping_fee,:total_price,:payment_method,:name,:postcode,:address,:order_status)
+    params.permit(:customer_id, :shipping_fee,:total_price,:payment_method,:address_name,:postcode,:address,:order_status)
   end
 
 end
