@@ -70,14 +70,14 @@ ActiveRecord::Schema.define(version: 2021_07_17_051509) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "customer_id", null: false
-    t.integer "shipping_fee", null: false
-    t.integer "total_price", null: false
-    t.integer "payment_method", null: false
-    t.string "name", null: false
-    t.string "postcode", null: false
-    t.string "address", null: false
-    t.integer "order_status", null: false
+    t.integer "customer_id"
+    t.integer "shipping_fee"
+    t.integer "total_price"
+    t.integer "payment_method", default: 0
+    t.string "name"
+    t.string "postcode"
+    t.string "address"
+    t.integer "order_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
