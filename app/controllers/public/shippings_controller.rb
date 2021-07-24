@@ -2,7 +2,7 @@ class Public::ShippingsController < ApplicationController
   def index
     @shippings = Shipping.all
     @shipping = Shipping.new
-    
+
   end
 
   def create
@@ -21,9 +21,9 @@ class Public::ShippingsController < ApplicationController
     shipping.update(shipping_params)
     redirect_to admin_customers_path
   end
-  
+
   private
-  
+
   def shipping_params
     params.permit(:customer_id, :name, :postcode, :address)
   end
