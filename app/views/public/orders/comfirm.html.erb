@@ -24,8 +24,8 @@
         <% end %>
         <table class="table table-bordered">
           <tr><th>送料</th><td><%= @order.shipping_fee %></td></tr>
-          <tr><th>商品合計</th><td><%= %></td></tr>
-          <tr><th>請求合計</th><td><%= @order.total_price %></td></tr>
+          <tr><th>商品合計</th><td><%= @total_price.round.to_s(:delimited) %> </td></tr>
+          <tr><th>請求合計</th><td><%= (@total_price + @order.shipping_fee).round.to_s(:delimited) %></td></tr>
         </table>
       </div>
     </div>
@@ -38,7 +38,7 @@
         <h5>お届け先 <%= @order.postcode %><%= @order.address %><%= @order.address_name %></h5>
       </div>
       <div class="actions col-6 col-sm-4 col-md-3">
-        <%= link_to "注文を確定する", orders_thankyou_path(payment_method: @order.payment_method, postcode: @order.postcode, address: @order.address, name: @order.address_name), class:"btn btn-primary btn-block"%>
+        <%= link_to "注文を確定する", orders_path(payment_method: @order.payment_method, postcode: @order.postcode, address: @order.address, address_name: @order.address_name, customer_id: current_customer.id, shipping_fee: 800, total_price: @total_price), method: :post, class:"btn btn-primary btn-block" %>
       </div>
     </div>
   </div>
