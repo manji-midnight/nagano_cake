@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   scope module: :public do
 
    resources :products, only:[:index,:show,]
-   resources :shippings, only:[:index,:create,:edit,:update]
+   resources :shippings, only:[:index,:create,:edit,:update,:destroy]
    resource :customers, only:[:show,:update]
    get 'customer_edit' => 'customers#edit', as: 'customer_edit'
    patch 'customers/update' => 'customers#update'
@@ -38,7 +38,6 @@ Rails.application.routes.draw do
    delete 'cart_products/destroy_all'
    root :to => "homes#top"
    get 'homes/about'
-
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

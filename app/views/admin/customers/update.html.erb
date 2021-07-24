@@ -1,2 +1,15 @@
 <h1>Admin::Customers#update</h1>
 <p>Find me in app/views/admin/customers/update.html.erb</p>
+<tr>
+                <td><%= customer.id %></td>
+                <td><%= customer.last_name %></td>
+                <td><%= customer.email %></td>
+                <td><%= customer.delete_user %></td>
+                <td><%=link_to "編集する",edit_admin_customer_path(customer.id) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        </div>
+    </div>
+</div>
