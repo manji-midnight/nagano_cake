@@ -14,8 +14,9 @@ class Admin::OrdersController < ApplicationController
 
   def show
      @order = Order.find(params[:id])
+     @order_products = @order.order_products
   end
-
+  
   def update
     @order = Order.find(params[:id])
     @order_products = @order.ordered_products
@@ -32,10 +33,8 @@ class Admin::OrdersController < ApplicationController
     else
       flash[:notice] = "注文ステータスを変更できませんでした"
       render :show
-    end  
-  end
-  
-  
+    end
+   end
   
   private
 

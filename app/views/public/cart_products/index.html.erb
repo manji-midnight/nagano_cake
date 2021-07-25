@@ -1,7 +1,12 @@
-<h1>ショッピングカート</h1>
+<div class="container">
+  <h1>ショッピングカート</h1>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="mb-3 text-right">
 <p>カートを空にする</p>
-
-<table border="1">
+    </div>
+<table class="table table-hover table-bordered">
+<!--<table border="1"></table>-->
   <tr>
     <td>商品名</td>
     <td>単価（税込）</td>
@@ -11,20 +16,30 @@
   </tr>
   <tr>
     <% @cart_products.each do |cart_product| %>
-    <td>画像：<%= cart_product.product.name %></td>
-    <td><%= cart_product.product.price %></td>
+    <td>ショートカット：<%= cart_product.product.name %></td>
+    <td>ポニテール<%= cart_product.product.price %></td>
     <td><%= form_with model: cart_product, local: true do |f| %>
     <%= f.select :quantity, options_for_select((1..20).to_a, {selected: cart_product.quantity.to_i}) %>
     <%= f.submit "変更" %>
     <% end %>
-    </td>
+    </td>ß
     <td><%= cart_product.product.price*cart_product.quantity %></td>
     <td><%= link_to"削除する", cart_product_path(cart_product), method: :delete %></td>
   </tr>
   <% end %>
 </table>
-
-<p><%= link_to "買い物を続ける", products_path %></p>
+<div class='row'>
+ <div class="col-md-5 offset-md-3"></div>
+  <div class="col-md-2 offset-md-1">
+<p><%= link_to "買い物を続ける", products_path , class: "btn btn-success" %></p>
 <p>合計金額</p>
+</div>
+</div>
 
-<p><%= link_to "情報入力に進む", new_order_path %></p>
+<div class = "row">
+  <div class ="col-md-5"></div>
+  <div class = "col-md-6">
+<p><%= link_to "情報入力に進む", new_order_path, class: "btn btn-success" %></p>
+</div>
+</div>
+</div>
