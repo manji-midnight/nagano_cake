@@ -14,29 +14,15 @@
     <td>支払金額</td>
     <td>注文ステータス</td>
     <td></td>
-  　　　　　　　</tr>
-          </thead>
-          <tbody>
-    <% @orders.each do |f| %>
-    <td>画像：<%= f.created_at.strftime('%Y/%m/%d') %></td>
-    <td>〒<%= f.postcode %><%= f.address %></td>
-    <td><%= f.name %></td>
-    <td><%= f.total_price %></td>
-    <td><%= f.order_status %></td>
-    <% case order.order_status %>
-    <% when 0 %>
-    入金待ち
-    <% when 1 %>
-    入金確認
-    <% when 2  %>
-    制作中
-    <% when 3 %>
-    発送準備中
-    <% when 4 %>
-    発送済
-    <% end %>
-    
-    <td><%= link_to"注文詳細", order_path(order.id) %></td>
+  </tr>
+  <tr>
+    <% @orders.each do |order| %>
+    <td>画像：<%= order.created_at.strftime('%Y/%m/%d') %></td>
+    <td>〒<%= order.postcode %><%= order.address %></td>
+    <td><%= order.order_detail.product.name %></td>
+    <td><%= order.total_price %></td>
+    <td><%= order.order_status %></td>
+    <td><%= link_to"注文詳細", public_order_path(order.id) %></td>
   </tr>
   <% end %>
   </tbody>

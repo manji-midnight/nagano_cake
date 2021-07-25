@@ -20,6 +20,7 @@ class Public::CartProductsController < ApplicationController
   def update
     @cart_products = CartProduct.all
     @cart_products.update(cart_product_params)
+    cart_product.save
     redirect_to cart_products_path
 
   end

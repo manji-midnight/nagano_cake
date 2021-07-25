@@ -13,7 +13,7 @@
             
             <td>注文日</td>
             <td></td>
-            <td><%= @order.created_at %></td>
+            <td><%= @order.created_at.to_s(:slash_and_time) %></td>
           </tr>
           
           <tr>
@@ -56,9 +56,9 @@
             <% @orders.each do |order| %>
               <tr>
                 <td><%= order.product.name %></td>
-                <td><%= order.product.add_tax_price.to_s(:dalimited) %></td>
-                <td><%= order.product.count %></td>
-                <td><%= order.product.price*cart_product.quantity %></td>
+                <td.to_s(:delimited)><%= order.product.add_tax_price.to_s(:dalimited) %></td>
+                <td.to_s(:delimited)><%= order.product.count %></td>
+                <td><%= order.product.price*cart_product.quantity.to_s(:delimited) %></td>
                 <td>注文ステータス</td>
                 <td>更新ボタン</td>
               </tr>
