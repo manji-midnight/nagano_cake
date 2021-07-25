@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="col-lg-10 col-xl-8 mx-auto">
+  <div class="col-lg-10 col-xl-8 mx-auto mt-5">
     <div class="row mb-3">
       <div class="col-12">
         <table class="table table-bordered">
@@ -18,7 +18,7 @@
           </tr>
           <tr>
             <th class="table-active">小計</th>
-            <td><%= cart_product.product.add_tax_price.to_s(:dalimited) * cart_product.quantity %></td>
+            <td><%= cart_product.product.add_tax_price * cart_product.quantity %></td>
           </tr>
         </table>
         <% end %>
@@ -30,17 +30,18 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-6 col-sm-4 col-md-3 d-flex align-items-center">
+    <div class="row m-2">
+      <div class="col-md-6 offset-md-3">
         <h5>支払い方法 <%= @order.payment_method %></h5>
       </div>
-      <div class="col-6 col-sm-4 col-md-3 d-flex align-items-center">
-        <h5>お届け先</h5>
-        <%= @order.postcode %>
-        <%= @order.address %>
-        <%= @order.address_name %>
+    </div>
+    <div class="row m-2">
+      <div class="col-md-6 offset-md-3">
+        <h5>お届け先 <%= @order.postcode %><%= @order.address %><%= @order.address_name %></h5>
       </div>
-      <div class="actions col-6 col-sm-4 col-md-3">
+    </div>
+    <div class="row m-2">
+      <div class="col-md-4 offset-md-4">
         <%= link_to "注文を確定する", orders_path(payment_method: @order.payment_method, postcode: @order.postcode, address: @order.address, address_name: @order.address_name, customer_id: current_customer.id, shipping_fee: 800, total_price: @total_price), method: :post, class:"btn btn-primary btn-block" %>
       </div>
     </div>
