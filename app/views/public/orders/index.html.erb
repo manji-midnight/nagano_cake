@@ -9,34 +9,30 @@
           <% end %>
         </div>
         <tr>
-          <td>購入日時</td>
-          <td>購入者</td>
-          <td>注文個数</td>
+          <td>購入日</td>
+          <td>配送先</td>
+          <td>注文商品</td>
           <td>支払金額</td>
-          <td>注文ステータス</td>
+          <td>ステータス</td>
           <td></td>
         </tr>
       </thead>
       <tbody>
         <tr>
           <% @orders.each do |order| %>
-          <td>画像：<%= order.created_at.strftime('%Y/%m/%d') %></td>
+          <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
           <td>〒<%= order.postcode %><%= order.address %></td>
-          <% end %>
           <td>
-            <% @order_details.each do |order_detail| %>
+            <% order.order_details.each do |order_detail| %>
             <%= order_detail.product.name %>
             <% end %>
           </td>
           <td><%= order.total_price %></td>
           <td><%= order.order_status %></td>
-          <td><%= link_to"注文詳細", public_order_path(order.id) %></td>
+          <td><%= link_to"注文詳細", order_path(order) %></td>
         </tr>
         <% end %>
       </tbody>
     </table>
-    <div class="pagination justify-content-center">
-      <%#= paginate @order %>
-    </div>
   </div>
-</div>
+</div

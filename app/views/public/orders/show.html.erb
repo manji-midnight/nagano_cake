@@ -24,7 +24,7 @@
   </tr>
 
   <tr>
-    <% @order_details.each do |f| %>
+    <% @orders.each do |f| %>
     <td><%= f.name %></td>
     <td><%= f.taxed_price.to_s %></td>
     <td><%= f.quantity.to_s %></td>
