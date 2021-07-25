@@ -1,6 +1,6 @@
 class Admin::OrdersController < ApplicationController
   before_action :authenticate_admin!
-  
+
   def index
     if params[:check] == "0"
     @orders = Order.all.page(params[:page]).per(10)
@@ -14,12 +14,10 @@ class Admin::OrdersController < ApplicationController
 
   def show
      @order = Order.find(params[:id])
-     @order_products = @order.order_products
   end
-  
+
   def update
     @order = Order.find(params[:id])
-    @order_products = @order.ordered_products
     if @order.update(order_params)
       if @order.order_status == 1
         @order_products.each do |order|
@@ -35,11 +33,11 @@ class Admin::OrdersController < ApplicationController
       render :show
     end
    end
-  
+
   private
 
   def order_params
     params.require(:order).permit(:order_status)
   end
-    
+
 end

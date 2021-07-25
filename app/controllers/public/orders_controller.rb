@@ -48,7 +48,6 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @order_details = OrderDetail.all(product_id: params[:product_id])
   end
 
   private
