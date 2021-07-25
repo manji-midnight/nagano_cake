@@ -12,6 +12,7 @@ class Admin::OrdersController < ApplicationController
   def show
      @order = Order.find(params[:id])
      @order_products = @order.order_products
+  end
      
 
    def update
@@ -33,9 +34,6 @@ class Admin::OrdersController < ApplicationController
     end
 
    end
-  end
-  
-  
   
   private
 
