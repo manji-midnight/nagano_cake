@@ -43,7 +43,6 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = current_customer.orders
-    byebug
     @order_details = OrderDetail.all(params[:order_id])
   end
 
