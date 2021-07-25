@@ -10,12 +10,12 @@
     <td></td>
   </tr>
   <tr>
-    <% @orders.each do |f| %>
-    <td>画像：<%= f.created_at.strftime('%Y/%m/%d') %></td>
-    <td>〒<%= f.postcode %><%= f.address %></td>
-    <td><%= f.name %></td>
-    <td><%= f.total_price %></td>
-    <td><%= f.order_status %></td>
+    <% @orders.each do |order| %>
+    <td>画像：<%= order.created_at.strftime('%Y/%m/%d') %></td>
+    <td>〒<%= order.postcode %><%= order.address %></td>
+    <td><%= order.order_detail.product.name %></td>
+    <td><%= order.total_price %></td>
+    <td><%= order.order_status %></td>
     <td><%= link_to"注文詳細", public_order_path(order.id) %></td>
   </tr>
   <% end %>
