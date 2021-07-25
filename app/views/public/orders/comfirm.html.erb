@@ -35,10 +35,13 @@
         <h5>支払い方法 <%= @order.payment_method %></h5>
       </div>
       <div class="col-6 col-sm-4 col-md-3 d-flex align-items-center">
-        <h5>お届け先 <%= @order.postcode %><%= @order.address %><%= @order.address_name %></h5>
+        <h5>お届け先</h5>
+        <%= @order.postcode %>
+        <%= @order.address %>
+        <%= @order.address_name %>
       </div>
       <div class="actions col-6 col-sm-4 col-md-3">
-        <%= link_to "注文を確定する", orders_thankyou_path(payment_method: @order.payment_method, postcode: @order.postcode, address: @order.address, name: @order.address_name), class:"btn btn-primary btn-block"%>
+        <%= link_to "注文を確定する", orders_path(payment_method: @order.payment_method, postcode: @order.postcode, address: @order.address, name: @order.address_name), class:"btn btn-primary btn-block"%>
       </div>
     </div>
   </div>
