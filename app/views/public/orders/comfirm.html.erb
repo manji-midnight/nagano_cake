@@ -18,7 +18,7 @@
           </tr>
           <tr>
             <th class="table-active">小計</th>
-            <td><%= cart_product.product.add_tax_price.to_s(:dalimited) * cart_product.quantity %></td>
+            <td><%= cart_product.product.add_tax_price * cart_product.quantity %></td>
           </tr>
         </table>
         <% end %>
