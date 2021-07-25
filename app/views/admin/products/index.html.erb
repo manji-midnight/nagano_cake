@@ -1,39 +1,39 @@
 <div class="container px-5 px-sm-0">
   <div class="row m-5">
-        <h2 class="font-weight-normal">商品一覧</h2>
+    <h2 class="font-weight-normal">商品一覧</h2>
 
-        <table class="table table-hover table-invers">
-          <thead>
-            <tr>
-              <th>商品ID</th>
-              <th>商品名</th>
-              <th>税抜価格</th>
-              <th>ジャンル</th>
-              <th>ステータス</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @products.each do |product| %>
-              <tr>
-                <td><%= product.id %></td>
-                <td><%= link_to product.name, "/admin/products/#{product.id}" %></td>
-                <td><%= product.price %>円</td>
-                <td><%= product.genre.name %></td>
-                <td>
-                  <% if product.is_active == true %>
-                  　<font color="green">販売中</font>
-                  <% else %>
-                    <font color="#C0C0C0">販売停止中</font>
-                  <% end %>
-                </td>
-              </tr>
+    <table class="table table-hover table-invers">
+      <thead>
+        <tr>
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>税抜価格</th>
+          <th>ジャンル</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+        <tr>
+          <td><%= product.id %></td>
+          <td><%= link_to product.name, "/admin/products/#{product.id}" %></td>
+          <td><%= product.price %>円</td>
+          <td><%= product.genre.name %></td>
+          <td>
+            <% if product.is_active == true %>
+              <font color="green">販売中</font>
+            <% else %>
+            <font color="#C0C0C0">販売停止中</font>
             <% end %>
-          </tbody>
-        </table>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
-  
+
   <div class="row m-4">
     <div class="mx-auto"><%= paginate @products %></div>
   </div>
-  
+
 </div>

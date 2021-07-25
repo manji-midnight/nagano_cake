@@ -1,4 +1,5 @@
 class Public::ShippingsController < ApplicationController
+  
   def index
     @shippings = Shipping.all
     @shipping = Shipping.new
@@ -41,4 +42,5 @@ class Public::ShippingsController < ApplicationController
   def shipping_params
     params.require(:shipping).permit(:customer_id, :name, :postcode, :address)
   end
+  
 end
