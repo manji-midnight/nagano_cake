@@ -13,7 +13,7 @@ class Admin::OrdersController < ApplicationController
   end
 
   def show
-     @order = Order.find(params[:id])
+    @order = Order.find(params[:id])
   end
 
   def update
@@ -26,7 +26,7 @@ class Admin::OrdersController < ApplicationController
     end
       redirect_back(fallback_location: root_path)
   end
-  
+
   private
 
   def order_params

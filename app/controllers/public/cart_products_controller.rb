@@ -1,7 +1,7 @@
 class Public::CartProductsController < ApplicationController
-
+  
   def index
-    @cart_products = CartProduct.all
+    @cart_products = current_customer.cart_products
   end
 
   def create
@@ -18,11 +18,9 @@ class Public::CartProductsController < ApplicationController
   end
 
   def update
-    @cart_products = CartProduct.all
-    @cart_products.update(cart_product_params)
-    cart_product.save
+    @cart_product = CartProduct.find(params[:id])
+    @cart_product.update(cart_product_params)
     redirect_to cart_products_path
-
   end
 
   def destroy
@@ -44,7 +42,7 @@ class Public::CartProductsController < ApplicationController
   end
 
   def cart_product_params
-    params.permit(:customer_id, :product_id, :quantity)
+    params.require(:cart_product).permit(:customer_id, :product_id, :quantity)
   end
 
 end
