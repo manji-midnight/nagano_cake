@@ -1,9 +1,9 @@
 class Admin::OrdersController < ApplicationController
   before_action :authenticate_admin!
-  
+
   def index
     if params[:check] == "0"
-    @orders = Order.all.page(params[:page]).per(10)
+      @orders = Order.all.page(params[:page]).per(10)
     elsif params[:check] && (params[:check] != "0")
       @orders = Order.where(customer_id: params[:check]).page(params[:page]).per(8)
       @notice = "注文履歴のみ表示しています。全ての会員の履歴はページ上部のリンクからご覧ください。"
@@ -32,5 +32,5 @@ class Admin::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:order_status)
   end
-    
+
 end
