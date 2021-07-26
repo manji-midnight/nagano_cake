@@ -21,7 +21,7 @@ class Admin::OrdersController < ApplicationController
     @order.update(order_params)
     if @order.order_status == "入金確認"
        @order.order_details.each do |order_detail|
-         order.update(production_status: "製作待ち")
+         order_detail.update(production_status: "製作待ち")
        end
     end
       redirect_back(fallback_location: root_path)
