@@ -32,8 +32,8 @@ class Admin::OrdersController < ApplicationController
       flash[:notice] = "注文ステータスを変更できませんでした"
       render :show
     end
-   end
-
+  end
+  
   private
 
   def order_params
