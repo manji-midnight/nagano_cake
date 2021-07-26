@@ -38,17 +38,17 @@ class Public::OrdersController < ApplicationController
 		  @order_detail.taxed_price = cart_product.product.add_tax_price
 		  @order_detail.save
 		end
+	  current_customer.cart_products.destroy_all
     redirect_to orders_thankyou_path
   end
 
   def index
     @orders = current_customer.orders
-    @order_details = OrderDetail.all(params[:order_id])
+
   end
 
   def show
     @order = Order.find(params[:id])
-    @order_details = OrderDetail.all(product_id: params[:product_id])
   end
 
   private
