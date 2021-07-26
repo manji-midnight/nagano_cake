@@ -38,6 +38,7 @@ class Public::OrdersController < ApplicationController
 		  @order_detail.taxed_price = cart_product.product.add_tax_price
 		  @order_detail.save
 		end
+	  current_customer.cart_products.destroy_all
     redirect_to orders_thankyou_path
   end
 
