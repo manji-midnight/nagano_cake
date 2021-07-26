@@ -68,7 +68,7 @@
               <td class="text-right"><%= (order_detail.taxed_price * order_detail.quantity).to_s(:delimited) %></td>
               <td>
                 <%= form_with model: [:admin, order_detail], local:true, class: "form-inline" do |f| %>
-                  <%#= f.select :making_status, order_detail.class.making_statuses.keys,  {}, {class: "custom-select mb-2 mr-sm-2"} %>
+                  <%= f.select :production_status, order_detail.class.production_statuses.keys,  {}, {class: "custom-select mb-2 mr-sm-2"} %>
                   <%= f.submit "更新", class: "btn btn-success mb-2" %>
                 <% end %>
               </td>

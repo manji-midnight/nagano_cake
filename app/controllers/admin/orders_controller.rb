@@ -18,24 +18,14 @@ class Admin::OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    @order_products = @order.ordered_products
-    if @order.update(order_params)
-      if @order.order_status == 1
-        @order_products.each do |order|
-         order.update(production_status: 1)
-        end
-        flash[:notice] = "注文ステータスが「入金確認」となったため、制作ステージが「制作待ち」に自動更新されました"
-      else
-        flash[:notice] = "注文ステータスを変更しました"
-      end
+    @order.update(order_params)
+    if @order.order_status == "入金確認"
+       @order.order_details.each do |order_detail|
+         order_detail.update(production_status: "製作待ち")
+       end
+    end
       redirect_back(fallback_location: root_path)
-    else
-      flash[:notice] = "注文ステータスを変更できませんでした"
-      render :show
-    end  
   end
-  
-  
   
   private
 
