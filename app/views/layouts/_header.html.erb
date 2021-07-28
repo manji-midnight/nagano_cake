@@ -3,9 +3,9 @@
     <div class="container">
       <a class="navbar-brand">
         <% if admin_signed_in? %>
-        <%= link_to "ながのCake", admin_root_path, class: "navbar-brand" %>
+        <%= link_to image_tag("IMG_logo.JPG"), admin_root_path, class: "navbar-brand" %>
         <% else %>
-        <%= link_to "ながのCake", root_path, class: "navbar-brand" %>
+        <%= link_to image_tag("IMG_logo.JPG"), root_path, class: "navbar-brand" %>
         <% end %>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
