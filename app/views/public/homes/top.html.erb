@@ -1,2 +1,44 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+  <div class="container">
+    <div class="row mx-auto mt-5">
+      <div class="col-xs-12">
+        <div class="img">
+
+          <%= image_tag 'teikoku1.jpg', size: '400x200' %>
+          <p>
+            <div class="introduction-top">
+              ようこそ、ながのCAKEへ！<br>
+              このサイトは、ケーキ販売のECサイトになります。<br>
+              会員でない方も商品の閲覧はできますが、<br>
+              購入には会員登録が必要になります。<br>
+            </div>
+          </p>
+        </div>
+
+        <!--<div class="new-products">新着商品</div>-->
+          <div class="lineup">
+
+          </div>
+      </div>
+    </div>
+    <div class="row mx-auto">
+      <h2>新着商品</h2>
+    </div>
+    <div class="row d-flex flex-wrap">
+    <% @products.each do |product| %>
+      <% if product.is_active == true %>
+      <div class="mx-4">
+        <table>
+          <tr><td><%= attachment_image_tag product, :image, format: 'jpeg', size: "200x160" %></td></tr>
+          <tr><td><%= link_to product.name, "/products/#{product.id}" %></td></tr>
+          <tr><td>¥<%= product.price %></td></tr>
+        </table>
+      </div>
+      
+      <% end %>
+    <% end %>
+  </div>
+    <div class="row mx-auto">
+      <div class="col-"></div>
+       <%= link_to '全ての商品を見る>', "/products" %>
+    </div>
+  </div>
