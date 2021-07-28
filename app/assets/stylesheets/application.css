@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+<<<<<<< HEAD:app/assets/stylesheets/application.scss
 
 @import "bootstrap";
 @import 'font-awesome-sprockets';
@@ -25,3 +26,5 @@
 .input{
     width: 350px;
 }
+=======
+>>>>>>> 8affcfd854fc6bc220b8b745150afb732a40f124:app/assets/stylesheets/application.css

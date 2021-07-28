@@ -1,4 +1,5 @@
 class Public::CartProductsController < ApplicationController
+<<<<<<< HEAD
   
   def index
     @cart_products = current_customer.cart_products
@@ -46,3 +47,11 @@ class Public::CartProductsController < ApplicationController
   end
 
 end
+=======
+  def new
+  end
+
+  def create
+  end
+end
+>>>>>>> 8affcfd854fc6bc220b8b745150afb732a40f124

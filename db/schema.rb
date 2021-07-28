@@ -10,21 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_07_17_051509) do
+=======
+ActiveRecord::Schema.define(version: 20210715081002) do
+>>>>>>> 8affcfd854fc6bc220b8b745150afb732a40f124
 
   create_table "admins", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.string   "email"
+    t.string   "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_admins_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
   create_table "cart_products", force: :cascade do |t|
+<<<<<<< HEAD
     t.integer "customer_id", null: false
     t.integer "product_id", null: false
     t.integer "quantity", default: 1, null: false
@@ -55,11 +55,38 @@ ActiveRecord::Schema.define(version: 2021_07_17_051509) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name", null: false
+=======
+    t.integer  "customer_id"
+    t.integer  "product_id"
+    t.integer  "quantity_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "last_name_kana"
+    t.string   "first_name_kana"
+    t.string   "postcode"
+    t.string   "address"
+    t.string   "phone_number"
+    t.string   "email"
+    t.string   "password"
+    t.boolean  "delete_user"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string   "name"
+>>>>>>> 8affcfd854fc6bc220b8b745150afb732a40f124
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "order_details", force: :cascade do |t|
+<<<<<<< HEAD
     t.integer "product_id", null: false
     t.integer "order_id", null: false
     t.integer "quantity", null: false
@@ -100,6 +127,48 @@ ActiveRecord::Schema.define(version: 2021_07_17_051509) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+=======
+    t.integer  "product_id"
+    t.integer  "order_id"
+    t.integer  "quantity"
+    t.integer  "taxed_price"
+    t.integer  "production_status"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "customer_id"
+    t.integer  "shipping_fee"
+    t.integer  "total_price"
+    t.integer  "payment_method"
+    t.string   "name"
+    t.string   "postcode"
+    t.string   "address"
+    t.integer  "order_status"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.integer  "genre_id"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "price"
+    t.boolean  "is_active"
+    t.string   "image_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "shippings", force: :cascade do |t|
+    t.integer  "customer_id"
+    t.string   "name"
+    t.string   "postcode"
+    t.string   "address"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+>>>>>>> 8affcfd854fc6bc220b8b745150afb732a40f124
   end
 
 end

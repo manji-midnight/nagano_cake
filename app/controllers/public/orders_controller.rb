@@ -43,12 +43,14 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+<<<<<<< HEAD
     @orders = current_customer.orders
 
+=======
+>>>>>>> 8affcfd854fc6bc220b8b745150afb732a40f124
   end
 
   def show
-    @order = Order.find(params[:id])
   end
 
   private

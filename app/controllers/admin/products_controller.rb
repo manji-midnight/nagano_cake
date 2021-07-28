@@ -1,24 +1,28 @@
 class Admin::ProductsController < ApplicationController
   
   def index
+<<<<<<< HEAD
     @products = Product.all.page(params[:page]).per(10)
+=======
+>>>>>>> 8affcfd854fc6bc220b8b745150afb732a40f124
   end
 
   def new
-    @product = Product.new
   end
 
   def create
+<<<<<<< HEAD
     @product = Product.new(product_params)
     if @product.save
       redirect_to admin_products_path
     else
       render :new
     end
+=======
+>>>>>>> 8affcfd854fc6bc220b8b745150afb732a40f124
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def edit
@@ -30,6 +34,7 @@ class Admin::ProductsController < ApplicationController
     product.update(product_params)
     redirect_to admin_product_path(product)
   end
+<<<<<<< HEAD
   
   private
 
@@ -37,4 +42,6 @@ class Admin::ProductsController < ApplicationController
     params.require(:product).permit(:name, :image, :description, :price, :genre_id, :is_active)
   end
   
+=======
+>>>>>>> 8affcfd854fc6bc220b8b745150afb732a40f124
 end

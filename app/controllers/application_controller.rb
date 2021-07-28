@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   
   protect_from_forgery with: :exception
+<<<<<<< HEAD
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   private
@@ -18,3 +19,6 @@ class ApplicationController < ActionController::Base
   end
 
 end
+=======
+end
+>>>>>>> 8affcfd854fc6bc220b8b745150afb732a40f124
